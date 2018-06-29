@@ -2,10 +2,13 @@
 
 # Algoritmo de PRIM
 funciones necesarias:
+
 Aristas[] vecinos(int nodo) --> Retorna un vector de aristas que tienen como origen a 'nodo'
 
 Pseudo-Codigo:
+
 PRIM
+
     vector booleano de visitados
     cantidad de Aristas = 0
     vector de aristas de prim (tamanio: cantidad de nodos -1)
@@ -31,12 +34,17 @@ PRIM
 
 # Algoritmo de KRUSKAL
 funciones necesarias:
+
 int find( vector, indice) --> retorna el nodo raiz del arbol al que pertenece el nodo 'indice'
+
 void union( vector, indice i, indice j) --> hace que nodo 'i' y nodo 'j' pertenezcan al mismo arbol
+
 boolean sameRoot( vector, indice i, indice j) verifica si nodo 'i' y nodo 'j' pertenecen al mismo arbol (las raices son el mismo nodo)
 
 Pseudo-Codigo:
+
 KRUSKAL
+
     cantidad de Aristas = 0
     vector de aristas de kruskal (tamanio: cantidad de nodos -1)
     vector de raices (tamanio: cantidad de nodo)
