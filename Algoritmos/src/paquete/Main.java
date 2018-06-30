@@ -1,5 +1,7 @@
 package paquete;
 
+import java.util.Arrays;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -21,7 +23,8 @@ public class Main {
 		grafo.agregarArista(7, 8, 4);
 		
 		grafo.verMatriz();
-	
+		System.out.println(Arrays.toString(grafo.recorridoDFS(1)));
+		System.out.println(Arrays.toString(grafo.recorridoBFS(1)));
 		Arista[] kruskal = grafo.kruskal();
 		System.out.println("Arbol");
 		for (int i = 0; i < kruskal.length; i++) {

@@ -72,3 +72,55 @@ KRUSKAL
     fin mientras
 
     retorno el vector de aristas de kruskal
+
+# Recorrido en Profundidad
+
+DFS(inicial)
+
+    vector booleano de visitados
+    pila de nodos
+
+    apilo el nodo inicial
+    pongo al nodo inicial como visitado
+
+    mientras la pila no este vacia
+        obtendo el indice del nodo tope
+
+        por cada nodo del grafo
+            si el nodo i es vecino del nodo tope y no fue visitado
+                apilo el nodo i
+                pongo al nodo i como visitado
+                salgo del 'for'
+        fin for
+
+        si no apile
+            desapilo
+    fin mientras
+
+    retorno el vector de visitados
+
+# Recorrido en Anchura
+
+BFS(inicial)
+
+    vector de distancias
+    cola de nodos
+
+    lleno el vector de distancias con -1
+
+    acolo el nodo inicial
+    la distancia al nodo inicial es 0
+
+    mientras la cola no este vacia
+        obtendo el indice del nodo primero
+
+        por cada nodo del grafo
+            si el nodo i es vecino del nodo primero y la distancia al nodo i es -1
+                acolo el nodo i
+                la distancia al nodo i es la distancia al nodo indice + 1
+        fin for
+
+        desacolo
+    fin mientras
+
+    retorno el vector de distancias

@@ -1,7 +1,10 @@
 package paquete;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Stack;
 
 public class Grafo {
 
@@ -30,6 +33,57 @@ public class Grafo {
 	
 	public void verMatriz() {
 		this.adyacencia.verMatrizSimetrica();
+	}
+	
+	public boolean[] recorridoDFS(int inicial) {
+		boolean[] visitados = new boolean[this.nodos.length];
+		Stack<Nodo> pila = new Stack<>();
+		
+		pila.push(this.nodos[inicial-1]);
+		visitados[inicial-1] = true;
+		
+		while( !pila.isEmpty() ){
+			int index = pila.peek().posicion();
+			boolean apile = false;
+			
+			for (int i = 0; i < nodos.length && !apile; i++)
+			if( i != index && this.adyacencia.getFC(index, i) != null && visitados[i] == false ) {
+				pila.push(this.nodos[i]);
+				visitados[i] = true;
+				apile = true;
+			}
+			
+			if( !apile )
+				pila.pop();
+		}
+		
+		return visitados;
+	}
+	
+	public int[] recorridoBFS(int inicial) {
+		int[] distancias = new int[this.nodos.length];
+		Queue<Nodo> cola = new LinkedList<>();
+		
+		Arrays.fill(distancias, -1);
+		
+		cola.add(this.nodos[inicial-1]);
+		distancias[inicial-1] = 0;
+		
+		while( !cola.isEmpty() ) {
+			int index = cola.peek().posicion();
+			
+			for (int i = 0; i < nodos.length; i++) {
+				if( i!=index && this.adyacencia.getFC(index, i)!=null && distancias[i] == -1 ) {
+					cola.add(this.nodos[i]);
+					distancias[i] = distancias[index] + 1;
+				}
+			}
+			
+			cola.poll();
+		}
+		
+		
+		return distancias;
 	}
 	
 	public Arista[] prim() {
