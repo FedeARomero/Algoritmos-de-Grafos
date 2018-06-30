@@ -9,30 +9,30 @@ Aristas[] vecinos(int nodo)
 
 Pseudo-Codigo:
 
-PRIM
+    PRIM
 
-    vector booleano de visitados
-    cantidad de Aristas = 0
-    vector de aristas de prim (tamanio: cantidad de nodos -1)
-    vector de aristas vecinas
-    monticulo
+        vector booleano de visitados
+        cantidad de Aristas = 0
+        vector de aristas de prim (tamanio: cantidad de nodos -1)
+        vector de aristas vecinas
+        monticulo
 
-    pongo al nodo inicial como visitado
-    agrego al monticulo los vecinos del nodo inicial
+        pongo al nodo inicial como visitado
+        agrego al monticulo los vecinos del nodo inicial
 
-    mientras ( cantidad de aristas de prim sea distinto a la cantidad de nodos -1 )
-        actual = saco arista del monticulo
+        mientras ( cantidad de aristas de prim sea distinto a la cantidad de nodos -1 )
+            actual = saco arista del monticulo
 
-        si nodo destino de actual no fue visitado
-            agrego acual al vector de aristas de prim
-            incremento cantidad de aristas de prim
+            si nodo destino de actual no fue visitado
+                agrego acual al vector de aristas de prim
+                incremento cantidad de aristas de prim
 
-            pongo al nodo destino como visitado
-            agrego al monticulo los vecinos del nodo destino
-    fin mientras
+                pongo al nodo destino como visitado
+                agrego al monticulo los vecinos del nodo destino
+        fin mientras
 
-    limpio el monticulo
-    retorno el vector de aristas de prim
+        limpio el monticulo
+        retorno el vector de aristas de prim
 
 # Algoritmo de KRUSKAL
 funciones necesarias:
@@ -51,76 +51,80 @@ boolean sameRoot( vector, indice i, indice j)
 
 Pseudo-Codigo:
 
-KRUSKAL
+    KRUSKAL
 
-    cantidad de Aristas = 0
-    vector de aristas de kruskal (tamanio: cantidad de nodos -1)
-    vector de raices (tamanio: cantidad de nodo)
+        cantidad de Aristas = 0
+        vector de aristas de kruskal (tamanio: cantidad de nodos -1)
+        vector de raices (tamanio: cantidad de nodo)
 
-    inicailizo el vector de raices
-    por cada elemento del vector de raices
-        raiz(i) = i --> cada nodo es un arbol y dicho nodo es la raiz
+        inicailizo el vector de raices
+        por cada elemento del vector de raices
+            raiz(i) = i --> cada nodo es un arbol y dicho nodo es la raiz
 
-    ordeno el vector de aristas del grafo
+        ordeno el vector de aristas del grafo
 
-    mientras ( cantidad de aristas de kruskal sea distinto a la cantidad de nodos -1 )
-        por cada arista obtengo el nodo origen y nodo destino
-        si origen y destino no tiene la misma raiz
-            agrego la arista al vector de aristas de kruskal
-            incremento la cantidad de Aristas
-        sigo con la siguiente arista del grafo
-    fin mientras
+        mientras ( cantidad de aristas de kruskal sea distinto a la cantidad de nodos -1 )
+            por cada arista obtengo el nodo origen y nodo destino
+            si origen y destino no tiene la misma raiz
+                agrego la arista al vector de aristas de kruskal
+                incremento la cantidad de Aristas
+            sigo con la siguiente arista del grafo
+        fin mientras
 
-    retorno el vector de aristas de kruskal
+        retorno el vector de aristas de kruskal
 
 # Recorrido en Profundidad
 
-DFS(inicial)
+Pseudo-Codigo:
 
-    vector booleano de visitados
-    pila de nodos
+    DFS( inicial )
 
-    apilo el nodo inicial
-    pongo al nodo inicial como visitado
+        vector booleano de visitados
+        pila de nodos
 
-    mientras la pila no este vacia
-        obtendo el indice del nodo tope
+        apilo el nodo inicial
+        pongo al nodo inicial como visitado
 
-        por cada nodo del grafo
-            si el nodo i es vecino del nodo tope y no fue visitado
-                apilo el nodo i
-                pongo al nodo i como visitado
-                salgo del 'for'
-        fin for
+        mientras la pila no este vacia
+            obtendo el indice del nodo tope
 
-        si no apile
-            desapilo
-    fin mientras
+            por cada nodo del grafo
+                si el nodo i es vecino del nodo tope y no fue visitado
+                    apilo el nodo i
+                    pongo al nodo i como visitado
+                    salgo del 'for'
+            fin for
 
-    retorno el vector de visitados
+            si no apile
+                desapilo
+        fin mientras
+
+        retorno el vector de visitados  
 
 # Recorrido en Anchura
 
-BFS(inicial)
+Pseudo-Codigo:
 
-    vector de distancias
-    cola de nodos
+    BFS( inicial )
 
-    lleno el vector de distancias con -1
+        vector de distancias
+        cola de nodos
 
-    acolo el nodo inicial
-    la distancia al nodo inicial es 0
+        lleno el vector de distancias con -1
 
-    mientras la cola no este vacia
-        obtendo el indice del nodo primero
+        acolo el nodo inicial
+        la distancia al nodo inicial es 0
 
-        por cada nodo del grafo
-            si el nodo i es vecino del nodo primero y la distancia al nodo i es -1
-                acolo el nodo i
-                la distancia al nodo i es la distancia al nodo indice + 1
-        fin for
+        mientras la cola no este vacia
+            obtendo el indice del nodo primero
 
-        desacolo
-    fin mientras
+            por cada nodo del grafo
+                si el nodo i es vecino del nodo primero y la distancia al nodo i es -1
+                    acolo el nodo i
+                    la distancia al nodo i es la distancia al nodo indice + 1
+            fin for
 
-    retorno el vector de distancias
+            desacolo
+        fin mientras
+
+        retorno el vector de distancias
