@@ -1,6 +1,6 @@
 # Algoritmos-de-Grafos
 
-# Algoritmo de PRIM
+## Algoritmo de PRIM
 funciones necesarias:
 
     Aristas[] vecinos(int nodo) 
@@ -34,7 +34,7 @@ Pseudo-Codigo:
         limpio el monticulo
         retorno el vector de aristas de prim
 
-# Algoritmo de KRUSKAL
+## Algoritmo de KRUSKAL
 funciones necesarias:
 
     int find( vector, indice)
@@ -73,7 +73,7 @@ Pseudo-Codigo:
 
         retorno el vector de aristas de kruskal
 
-# Recorrido en Profundidad
+## Recorrido en Profundidad
 
 Pseudo-Codigo:
 
@@ -101,7 +101,7 @@ Pseudo-Codigo:
 
         retorno el vector de visitados  
 
-# Recorrido en Anchura
+## Recorrido en Anchura
 
 Pseudo-Codigo:
 
