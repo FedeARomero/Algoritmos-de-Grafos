@@ -93,7 +93,7 @@ Pseudo-Codigo:
                     apilo el nodo i
                     pongo al nodo i como visitado
                     salgo del 'for'
-            fin for
+            fin por
 
             si no apile
                 desapilo
@@ -122,9 +122,51 @@ Pseudo-Codigo:
                 si el nodo i es vecino del nodo primero y la distancia al nodo i es -1
                     acolo el nodo i
                     la distancia al nodo i es la distancia al nodo indice + 1
-            fin for
+            fin por
 
             desacolo
         fin mientras
 
         retorno el vector de distancias
+
+## Algoritmo de Floyd
+
+Pseudo-Codigo:
+
+    Floyd
+
+        matriz anterior de enteros
+        matriz actual de enteros
+
+        copio la matriz de adyacencia en la matriz anterior
+
+        por cada nodo del grafo
+            fila y columna nodo en matriz actual es igual a la matriz anterior y en la diagonal se cargan 0
+
+            en los otro elementos cargo el minimo entre el anterior (i j) y la suma entre anterior (i nodo) y anterior (nodo j)
+
+            matriz anterior es la actual
+        fin por
+
+        retorno matriz anterior
+
+## Algoritmo de Warshall
+
+Pseudo-Codigo:
+
+    Warshall
+
+        matriz anterior de booleanos
+        matriz actual de booleanos
+
+        copio la matriz de adyacencia en la matriz anterior
+
+        por cada nodo del grafo
+            fila y columna nodo en matriz actual es igual a la matriz anterior y en la diagonal se cargan false
+
+            en los otro elementos cargo: anterior (i j) o ( anterior (i nodo) y anterior (nodo j) )
+
+            matriz anterior es la actual
+        fin por
+
+        retorno matriz anterior      
