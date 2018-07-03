@@ -169,4 +169,35 @@ Pseudo-Codigo:
             matriz anterior es la actual
         fin por
 
-        retorno matriz anterior      
+        retorno matriz anterior
+
+## Algoritmo de Disktra
+
+Pseudo-Codigo:
+
+    Dijkstra( inicial )
+
+        vector de distancias lleno de infinito
+        vector de nodo anterior
+        vector booleano de visitados
+
+        monticulo
+
+        pongo al nodo inicial como visitado
+        pongo la distancia al nodo inicial como 0
+        pongo a nodo anteriror de inicial el mismo
+
+        agrego al monticulo la posicion del nodo inicial
+
+        mientras el monticulo no este vacio
+            saco del monticulo el nodo
+            pongo como visitado al nodo
+
+            por cada nodo
+                si la distancia al nodo i es mayor que la distancia entre el indice + la distancia entre el nodo i y el indice
+                actualizo la distancia
+                agrego el nodo i al monticulo
+            fin de por
+        fin del mientras
+
+        retorno el vector de distancias

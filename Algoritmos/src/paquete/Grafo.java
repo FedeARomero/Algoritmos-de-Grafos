@@ -12,6 +12,7 @@ public class Grafo {
 	private Arista[] aristas;
 	private int cantidadAristas;
 	private MatrizSimetrica adyacencia;
+	private final static int INFINITO = 200000;
 	
 	public Grafo() {
 		
@@ -82,6 +83,42 @@ public class Grafo {
 			cola.poll();
 		}
 		
+		
+		return distancias;
+	}
+	
+	public int[] dijkstra(int inicial) {
+		int[] distancias = new int[this.nodos.length];
+		Arrays.fill(distancias, INFINITO);
+		
+		Integer[] anterior = new Integer[this.nodos.length];
+		Arrays.fill(anterior, null);
+		
+		boolean[] visitados = new boolean[this.nodos.length];
+		Arrays.fill(visitados, false);
+		
+		distancias[inicial-1] = 0;
+		visitados[inicial-1] = true;
+		anterior[inicial-1] = inicial-1;
+		
+		PriorityQueue<Integer> monticulo = new PriorityQueue<>();
+		monticulo.add(inicial-1);
+		
+		while( !monticulo.isEmpty() ) {
+			int index = monticulo.poll();
+			visitados[index] = true;
+			
+			for (int i = 0; i < nodos.length; i++)
+				if( this.adyacencia.getFC(index, i) != null && distancias[i] > distancias[index] + this.adyacencia.getFC(index, i) ) {
+						distancias[i] = distancias[index] + this.adyacencia.getFC(index, i);
+						anterior[i] = index;
+						monticulo.add(i);
+					}
+		}
+
+		for (int i = 0; i < anterior.length; i++) {
+			System.out.println(this.nodos[anterior[i]] + "-->" + this.nodos[i]);
+		}
 		
 		return distancias;
 	}

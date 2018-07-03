@@ -58,6 +58,20 @@ public class Main {
 				System.out.print(warshall[i][j] + " ");
 			System.out.println();
 		}
+		
+		Grafo grafoDijktra = new Grafo(7, 10);
+		grafoDijktra.agregarArista(1, 2, 8);
+		grafoDijktra.agregarArista(1, 4, 6);
+		grafoDijktra.agregarArista(1, 6, 2);
+		grafoDijktra.agregarArista(2, 3, 1);
+		grafoDijktra.agregarArista(3, 4, 4);
+		grafoDijktra.agregarArista(3, 5, 1);
+		grafoDijktra.agregarArista(4, 5, 3);
+		grafoDijktra.agregarArista(4, 6, 5);
+		grafoDijktra.agregarArista(5, 7, 2);
+		grafoDijktra.agregarArista(6, 7, 7);
+		
+		System.out.println(Arrays.toString(grafoDijktra.dijkstra(7)));
 	}
 
 }
